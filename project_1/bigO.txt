@@ -1,0 +1,23 @@
+Task 0
+#  Big o : time: o[1] and space: o[1]
+#  worst case will be constant because We are accessing only two rows first and last all the time.
+
+Task 1
+#  Big o : time: o[n] and space: o[n]
+# time complexity worst case n because it's loop through both texts and calls once 
+#  no nested loop
+
+Task2
+#  Big o : time: o[n] and space: o[n]
+# time complexity worst case O(n2) (quadric)
+# because disctionary(hashmap) search average o(1) and for every record we are searching key
+# worst case finding key in hashmap/disctionary is n hence worst case time complexity O(n2))(quadric)
+
+Task 3
+#  Big o : time: o[nlogn] and space: o[n]
+# time complexity worst case nlogn because of built in sorting python 
+
+Task 4
+
+#  Big o : time: o[nlogn] and space: o[n]
+#  time complexity worst case nlogn because of built in sorting python 
