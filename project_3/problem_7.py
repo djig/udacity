@@ -15,15 +15,7 @@ class RouteTrie:
             curr = curr.children[path]
         curr.description = description
         curr.is_final_handler = True
-    def find(self, path):
-        queue = [self.root]
-        while len(queue)> 0:
-            curr = queue.pop(0)
-            if curr and path in curr.children[path]:
-                return curr
-            for c in curr.children:
-                queue.append(curr.children[c])
-        return None
+
 class Router:
     def __init__(self, rootMessage, notFoundMessage):
         self.router = RouteTrie(rootMessage, False)
