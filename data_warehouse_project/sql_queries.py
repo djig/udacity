@@ -284,32 +284,71 @@ WHERE
 """)
 
 stage_events_select = ("""
-SELECT * FROM staging_events limit 5000;
+SELECT COUNT(*)
+FROM staging_events;
 """)
 stage_songs_select = ("""
-SELECT * FROM staging_songs limit 5000;
+SELECT COUNT(*)
+FROM staging_songs;
 """)
 songs_play_select = ("""
-SELECT * FROM songplays limit 5000;
+SELECT COUNT(*)
+FROM songplays;
 """)
 users_select = ("""
-SELECT * FROM users limit 5000;
+SELECT COUNT(*)
+FROM users;
 """)
 artise_select = ("""
-SELECT * FROM artists limit 5000;
+SELECT COUNT(*)
+FROM artists;
 """)
 songs_select = ("""
-SELECT * FROM songs limit 5000;
+SELECT COUNT(*)
+FROM songs;
 """)
 time_select = ("""
-SELECT * FROM time limit 5000;
+SELECT COUNT(*)
+FROM time;
+""")
+
+test_query = ("""
+SELECT  
+    sp.songplay_id,
+    u.user_id,
+    s.song_id,
+    u.last_name,
+    sp.start_time,
+    a.name,
+    s.title
+FROM 
+    songplays AS sp
+JOIN 
+    users   AS u 
+ON 
+    (u.user_id = sp.user_id)
+JOIN
+    songs   AS s 
+ON 
+    (s.song_id = sp.song_id)
+JOIN 
+    artists AS a 
+ON 
+    (a.artist_id = sp.artist_id)
+JOIN 
+    time    AS t 
+ON
+    (t.start_time = sp.start_time)
+ORDER BY
+    (sp.start_time)
+LIMIT 1000;
 """)
 
 copy_table_queries = [staging_events_copy, staging_songs_copy]
 create_table_queries = [staging_events_table_create, staging_songs_table_create, songplay_table_create, user_table_create, song_table_create, artist_table_create, time_table_create]
 drop_table_queries = [staging_events_table_drop, staging_songs_table_drop, songplay_table_drop, user_table_drop, song_table_drop, artist_table_drop, time_table_drop]
 insert_table_queries = [songplay_table_insert, user_table_insert, song_table_insert, artist_table_insert, time_table_insert]
-select_table_queries = [stage_events_select, stage_songs_select, songs_play_select, users_select, artise_select, songs_select, time_select]
+select_table_queries = [stage_events_select, stage_songs_select, songs_play_select, users_select, artise_select, songs_select, time_select, test_query]
 
 
 #  following is to test queries after data copied to staging tables
