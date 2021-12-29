@@ -284,31 +284,31 @@ WHERE
 """)
 
 stage_events_select = ("""
-SELECT COUNT(*)
+SELECT COUNT(*) as stageEventsCnt
 FROM staging_events;
 """)
 stage_songs_select = ("""
-SELECT COUNT(*)
+SELECT COUNT(*) as stageSongsCnt
 FROM staging_songs;
 """)
 songs_play_select = ("""
-SELECT COUNT(*)
+SELECT COUNT(*) as songsPlayCnt
 FROM songplays;
 """)
 users_select = ("""
-SELECT COUNT(*)
+SELECT COUNT(*) as usersCnt
 FROM users;
 """)
 artise_select = ("""
-SELECT COUNT(*)
+SELECT COUNT(*) as artistsCnt
 FROM artists;
 """)
 songs_select = ("""
-SELECT COUNT(*)
+SELECT COUNT(*) as songsCnt
 FROM songs;
 """)
 time_select = ("""
-SELECT COUNT(*)
+SELECT COUNT(*) as timeCnt
 FROM time;
 """)
 
@@ -352,8 +352,8 @@ select_table_queries = [stage_events_select, stage_songs_select, songs_play_sele
 
 
 #  following is to test queries after data copied to staging tables
-copy_table_queries_test = [ staging_events_copy]
-# staging_songs_copy
+copy_table_queries_test = [ staging_songs_copy]
+# staging_songs_copy staging_events_copy
 ts_test_queries = [stage_events_select_ts_1, stage_events_select_ts_2]
 create_table_queries_test = [songplay_table_create, user_table_create, song_table_create, artist_table_create, time_table_create]
 drop_table_queries_test = [ songplay_table_drop, user_table_drop, song_table_drop, artist_table_drop, time_table_drop]

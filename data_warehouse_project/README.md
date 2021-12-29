@@ -30,19 +30,25 @@ This is ETL project for company sparkify. It gets large volume of JSON data from
 
 ## ER diagram
 ![SparkifyDB schema as ER Diagram](./ER.png)
+![SparkifyDB schema as ER Diagram](./stagingtables.png)
+
+## Time taken for ETL
+Majority of time taken for etl job was to copy staging_songs from s3 to DB.
+Here is one sample log
+3041.534287214279 Time taken for etl(seconds):
 
 ## DB stats
-1. Staging Tables
-    - staging_events : 
-    - staging_songs:
+1. Staging Tables No of records
+    - staging_events : 8056
+    - staging_songs: 385252
 2. DW
     - Fact Table
-        - songplays: 
+        - songplays: 245719 -- Only for page=='NextSong'
     - Dimentions
-        - songs: 
-        - artists: 
-        - users: 
-        - time: 
+        - songs: 384824  -- All songs 
+        - artists: 45266
+        - users: 104
+        - time: 6813
 ## Test Query
 1. Staging Tables
     ```
